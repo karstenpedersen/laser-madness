@@ -35,6 +35,7 @@
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":0,},
     {"id":{"name":"obj_projectile_bullet","path":"objects/obj_projectile_bullet/obj_projectile_bullet.yy",},"order":2,},
     {"id":{"name":"par_projectile","path":"objects/par_projectile/par_projectile.yy",},"order":5,},
+    {"id":{"name":"snd_music","path":"sounds/snd_music/snd_music.yy",},"order":0,},
     {"id":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},"order":2,},
     {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},"order":0,},
   ],
