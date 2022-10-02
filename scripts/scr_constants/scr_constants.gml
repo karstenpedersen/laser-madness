@@ -1,0 +1,5 @@
+
+enum PROJECTILE_TYPE {
+	BULLET,
+	LASER,
+}
