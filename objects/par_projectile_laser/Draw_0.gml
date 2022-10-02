@@ -13,9 +13,9 @@ if (instance_exists(creator)) {
 		laser_length += movement_speed;
 		
 		// Collision
-		var _w = sprite_get_height(sprite_index)/2;
-		var _x = x+lengthdir_x(laser_length,direction);
-		var _y = y+lengthdir_y(laser_length,direction);
+		var _w = sprite_get_height(sprite_index) / 2;
+		var _x = x+lengthdir_x(laser_length, sprite_angle);
+		var _y = y+lengthdir_y(laser_length, sprite_angle);
 		_collision_object = collision_rectangle(_x-_w,_y-_w,_x+_w,_y+_w,par_entity_alive,true,true);
 		
 		if (_collision_object && _collision_object != creator) {
@@ -24,6 +24,7 @@ if (instance_exists(creator)) {
 				_collisions++;
 			}
 		}
+		draw_point(_x, _y)
 	}
 	#endregion
 	var _i,_parent;
@@ -32,13 +33,11 @@ if (instance_exists(creator)) {
 		if (instance_exists(_object)) {
 			_parent = object_get_parent(_object);
 			show_debug_message(object_get_name(_object));
-			if (_parent == par_player || _object == obj_player) {
-				show_debug_message("TEST 1")
+			if (_parent == par_player) {
 				if (enemy && creator != _object) {
 					_object.s_take_damage(damage);
 				}
 			} else {
-				show_debug_message("TEST 2")
 				if (!enemy) {
 					_object.s_take_damage(damage);
 				}

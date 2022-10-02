@@ -62,20 +62,8 @@ function draw_line_stacked(argument0, argument1, argument2, argument3, argument4
 	var x_axis = lengthdir_x(1,global.z_angle-90);
 	var y_axis = lengthdir_y(1,global.z_angle+90);
 	var i;
+	
 	for (i = _z; i < _z+sprite_get_number(_sprite); i++) {
-		draw_sprite_ext(sprite_index,i-_z,_x+(i*x_axis),_y+(i*y_axis),_distance/3,1,_angle,c_white,1);
+		draw_sprite_ext(sprite_index,i-_z,_x+(i*x_axis),_y+(i*y_axis),_distance,1,_angle,c_white,1);
 	}
-	/*
-	if (base_id >= 0) {
-		var _connection_count = ds_list_size(connections_list);
-		var _i,_obj;
-		for (_i = 0; _i < _connection_count; _i++) {
-			_obj = ds_list_find_value(connections_list,_i);
-			if (base_branch_number > _obj.base_branch_number) {
-				var _distance = distance_to_object(_obj)+24;
-				var _direction = point_direction(x,y,_obj.x,_obj.y);
-				draw_sprite_ext(spr_tether_line,0,x,y,_distance/3,1,_direction,c_white,1);
-			}
-		}
-	}*/
 }

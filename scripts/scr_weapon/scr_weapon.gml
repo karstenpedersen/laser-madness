@@ -1,6 +1,6 @@
 
 function weapon_player() : weapon_base() constructor {
-	cooldown = 30;
+	cooldown = 600;
 	projectiles = [
 		new projectile_player(),
 	];
@@ -16,7 +16,7 @@ function projectile_player() : projectile_laser() constructor {
 	piercing = 3;
 	object = obj_projectile_player;
 	lifetime = 30;
-	range = 500;
+	range = 200;
 }
 
 
@@ -24,7 +24,7 @@ function projectile_laser() : projectile_base() constructor {
 	type = PROJECTILE_TYPE.LASER;
 	sprite = spr_projectile_laser;
 	range = 100;
-	movement_speed = 2;
+	movement_speed = 4;
 }
 
 function projectile_base() constructor {

@@ -7,7 +7,8 @@ movement_speed = 2;
 movement = false;
 
 function s_use_weapon() {
-	create_projectile(x, y, weapon.projectiles[0], self, sprite_angle);
+	show_debug_message("TEST" + string(object_get_name(id)))
+	create_projectile(x, y, weapon.projectiles[0], id, sprite_angle);
 	alarm[0] = weapon.cooldown;
 }
 
