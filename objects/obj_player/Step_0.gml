@@ -17,7 +17,7 @@ if (movement) {
 	x += lengthdir_x(movement_speed,angle);
 	y += lengthdir_y(movement_speed,angle);
 
-	var b = 32;
+	var b = 512;
 	x = clamp(x,b,room_width-b);
 	y = clamp(y,b,room_height-b);
 }

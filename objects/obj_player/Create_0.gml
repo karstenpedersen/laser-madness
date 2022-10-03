@@ -15,3 +15,7 @@ function s_use_weapon() {
 
 weapon = new weapon_player();
 alarm[0] = weapon.cooldown;
+
+dashing = false;
+
+collision_list = ds_list_create();

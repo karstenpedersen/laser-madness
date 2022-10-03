@@ -24,7 +24,6 @@ if (instance_exists(creator)) {
 				_collisions++;
 			}
 		}
-		draw_point(_x, _y)
 	}
 	#endregion
 	var _i,_parent;
