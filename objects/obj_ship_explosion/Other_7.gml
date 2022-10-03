@@ -3,4 +3,4 @@
 
 //instance_destroy();
 
-audio_play_sound(snd_player_death,40,false);
+//audio_play_sound(snd_player_death,40,false);
