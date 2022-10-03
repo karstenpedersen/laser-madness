@@ -6,6 +6,9 @@ instance_create_layer(room_width / 2, room_height / 2, "Instances", obj_player);
 if (global.first_time) {
 	instance_create_layer(room_width / 2, room_height / 2, "Instances", obj_tutorial);
 	global.first_time = false;
+	global.completed_tutorial = false;
+} else {
+	global.completed_tutorial = true;
 }
 
 randomize();
@@ -13,7 +16,7 @@ randomize();
 global.wave = 0;
 global.score = 0;
 
-global.completed_tutorial = false;
+
 
 global.enemy_list = ds_list_create();
 ds_list_add(global.enemy_list, obj_enemy_flyer);
