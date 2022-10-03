@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "snd_menu_music",
+  "name": "snd_player_damage",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -14,8 +14,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "snd_menu_music.mp3",
-  "duration": 26.712,
+  "soundFile": "snd_player_damage.mp3",
+  "duration": 2.52,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
