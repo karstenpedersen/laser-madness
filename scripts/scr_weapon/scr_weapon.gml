@@ -24,7 +24,7 @@ function projectile_player() : projectile_laser() constructor {
 	piercing = 1;
 	object = obj_projectile_player;
 	lifetime = 45;
-	range = 300;
+	range = 250;
 }
 
 function projectile_enemy_flyer() : projectile_base() constructor {
@@ -33,7 +33,7 @@ function projectile_enemy_flyer() : projectile_base() constructor {
 	object = obj_projectile_bullet;
 	sprite = spr_projectile_bullet;
 	lifetime = 300;
-	movement_speed = 2;
+	movement_speed = 2.4;
 	range = 500;
 }
 
