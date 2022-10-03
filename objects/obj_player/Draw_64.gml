@@ -23,3 +23,6 @@ draw_rectangle(0, 0, 3, _procent * 640, false);
 draw_rectangle(640 - 3, 640 - _procent * 640, 640, 640, false);
 draw_rectangle(0, 640 - 3, _procent * 640, 640, false);
 draw_rectangle(640 - _procent * 640, 0, 640, 3, false);
+
+
+draw_text(16, 64, created_sprite)

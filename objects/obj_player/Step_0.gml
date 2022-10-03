@@ -1,10 +1,13 @@
 /// @description 
 
+// Inherit the parent event
+event_inherited();
 
-	
-var angle = -global.z_angle;
-	
-sprite_angle = angle;
+// Rotate 
+direction = -global.z_angle;
+image_angle = direction;
+
+// Movement
 movement = keyboard_check(ord("W"))+keyboard_check(ord("A"))+keyboard_check(ord("S"))+keyboard_check(ord("D"));
 
 if (movement) {
