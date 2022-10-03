@@ -1,6 +1,7 @@
 /// @description 
 
 if (room == rm_game && !instance_exists(par_menu)) {
+	draw_set_color(c_white);
 	var b = 512;
 	draw_rectangle(b, b, room_width-b, room_height-b, true);
 

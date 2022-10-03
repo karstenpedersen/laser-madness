@@ -13,7 +13,10 @@ randomize();
 global.wave = 0;
 global.score = 0;
 
+global.completed_tutorial = false;
+
 global.enemy_list = ds_list_create();
+ds_list_add(global.enemy_list, obj_enemy_flyer);
 ds_list_add(global.enemy_list, obj_enemy_flyer);
 
 function s_spawn_enemies() {

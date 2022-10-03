@@ -30,7 +30,6 @@ if (instance_exists(creator)) {
 		if (_collision_object && _collision_object != creator) {
 			if (ds_list_find_index(collision_list, _collision_object) == -1) {
 				ds_list_add(collision_list, _collision_object);
-				_collisions++;
 			}
 		}
 	}

@@ -64,6 +64,10 @@ if (can_dash) {
 	}
 }
 
+if (hp == 1) {
+	create_dust(1, spr_effect_dust, c_gray, 0.75);
+}
+
 var b = 512;
 x = clamp(x,b,room_width-b);
 y = clamp(y,b,room_height-b);

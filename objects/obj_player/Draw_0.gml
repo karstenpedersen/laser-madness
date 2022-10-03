@@ -9,8 +9,6 @@ var _length = 0;
 var _collisions = 0;
 var _collision_object,_object;
 
-
-
 var _speed = 18;
 var _procent = (weapon.cooldown - alarm[0]) / weapon.cooldown;
 var _max_length = _procent * ( weapon.projectiles[0].range - _speed);

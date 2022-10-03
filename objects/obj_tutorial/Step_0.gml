@@ -16,4 +16,5 @@ if (keyboard_check_pressed(vk_space)) {
 
 if (pressed_move && pressed_rotate && pressed_dash) {
 	instance_destroy();
+	global.completed_tutorial = true;
 }
