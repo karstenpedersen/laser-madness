@@ -1,8 +1,12 @@
 /// @description 
 
 // Create instances
-instance_create_layer(room_width / 2, room_height / 2, "Instances", cnt_camera);
 instance_create_layer(room_width / 2, room_height / 2, "Instances", obj_player);
+
+if (global.first_time) {
+	instance_create_layer(room_width / 2, room_height / 2, "Instances", obj_tutorial);
+	global.first_time = false;
+}
 
 randomize();
 
@@ -10,10 +14,7 @@ global.wave = 0;
 global.score = 0;
 
 global.enemy_list = ds_list_create();
-ds_list_add(global.enemy_list, obj_enemy_turret);
 ds_list_add(global.enemy_list, obj_enemy_flyer);
-ds_list_add(global.enemy_list, obj_enemy_attacker);
-ds_list_add(global.enemy_list, obj_enemy_ship);
 
 function s_spawn_enemies() {
 	var _enemy_count = global.wave + irandom_range(3, 5);

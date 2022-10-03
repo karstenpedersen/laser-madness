@@ -20,6 +20,7 @@ var _channel = animcurve_get_channel(_curveStruct, "curve");
 var _curveValue = animcurve_channel_evaluate(_channel, _procent); 
 
 while (_length < _max_length) {
+	draw_set_color(c_white);
 	draw_set_color(make_color_hsv(0, 0, 255 * _procent));
 	_length += _speed;
 		
