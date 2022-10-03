@@ -24,6 +24,15 @@ if (instance_exists(creator)) {
 				_collisions++;
 			}
 		}
+		
+		_collision_object = collision_rectangle(_x-_w,_y-_w,_x+_w,_y+_w,par_projectile_bullet,true,true);
+		
+		if (_collision_object && _collision_object != creator) {
+			if (ds_list_find_index(collision_list, _collision_object) == -1) {
+				ds_list_add(collision_list, _collision_object);
+				_collisions++;
+			}
+		}
 	}
 	#endregion
 	var _i,_parent;
@@ -36,10 +45,12 @@ if (instance_exists(creator)) {
 				if (enemy && creator != _object) {
 					_object.s_take_damage(damage);
 				}
-			} else {
+			} else if (_parent == par_entity_alive) {
 				if (!enemy) {
 					_object.s_take_damage(damage);
 				}
+			} else {
+				instance_destroy(_object);
 			}
 		}
 	}
