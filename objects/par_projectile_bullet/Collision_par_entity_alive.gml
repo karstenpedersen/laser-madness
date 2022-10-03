@@ -13,6 +13,8 @@ if (ds_list_find_index(collision_list, other.id) == -1 && !other.invincible) {
 	
 	if (_collide) {
 		ds_list_add(collision_list, other.id);
+		
+		audio_play_sound(snd_player_damage,40,false);
 	
 		other.s_take_damage(damage);
 	

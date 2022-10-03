@@ -3,6 +3,8 @@
 // Inherit the parent event
 event_inherited();
 
+audio_play_sound(snd_player_death,40,false);
+
 audio_stop_sound(snd_music);
 
 repeat (5) {

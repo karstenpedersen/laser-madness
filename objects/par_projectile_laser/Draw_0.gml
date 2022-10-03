@@ -49,6 +49,7 @@ if (instance_exists(creator)) {
 					_object.s_take_damage(damage);
 				}
 			} else {
+				audio_play_sound(snd_bullet_death,40,false);
 				instance_destroy(_object);
 			}
 		}

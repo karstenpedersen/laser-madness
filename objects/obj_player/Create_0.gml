@@ -38,3 +38,5 @@ dash_duration = 15;
 can_dash = true;
 
 collision_list = ds_list_create();
+
+dash_sound = false;

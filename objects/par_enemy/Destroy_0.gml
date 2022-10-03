@@ -8,6 +8,8 @@ event_inherited();
 
 create_dust(20, spr_effect_dust, c_red);
 
+audio_play_sound(snd_small_enemy_death,40,false);
+
 repeat (irandom_range(5, 8)) {
 	var _r = 32;
 	var _x = x - irandom_range(-_r, _r);

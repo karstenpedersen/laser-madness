@@ -32,6 +32,8 @@ if (dashing) {
 	
 	create_dust(5);
 } else if (can_dash && keyboard_check_pressed(vk_space)) {
+	audio_play_sound(snd_player_dash,40,false);
+	dash_sound = true;
 	dashing = true;
 	can_dash = false;
 	invincible = true;
@@ -39,6 +41,11 @@ if (dashing) {
 }
 
 if (can_dash) {
+	if (dash_sound) {
+		audio_play_sound(snd_player_dash_full,40,false);
+		dash_sound = false;
+	}
+			
 	var _angle = 15;
 	var _len = 6;
 	var _dir = image_angle - 90;
