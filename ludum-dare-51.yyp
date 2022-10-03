@@ -38,6 +38,7 @@
     {"id":{"name":"snd_small_enemy_death","path":"sounds/snd_small_enemy_death/snd_small_enemy_death.yy",},"order":3,},
     {"id":{"name":"spr_projectile_laser","path":"sprites/spr_projectile_laser/spr_projectile_laser.yy",},"order":5,},
     {"id":{"name":"par_projectile_bullet","path":"objects/par_projectile_bullet/par_projectile_bullet.yy",},"order":6,},
+    {"id":{"name":"snd_player_dash_full","path":"sounds/snd_player_dash_full/snd_player_dash_full.yy",},"order":10,},
     {"id":{"name":"spr_background","path":"sprites/spr_background/spr_background.yy",},"order":2,},
     {"id":{"name":"obj_projectile_player","path":"objects/obj_projectile_player/obj_projectile_player.yy",},"order":4,},
     {"id":{"name":"spr_projectile_laser_start","path":"sprites/spr_projectile_laser_start/spr_projectile_laser_start.yy",},"order":9,},
