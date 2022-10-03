@@ -25,17 +25,18 @@ if (instance_exists(creator)) {
 			}
 		}
 		
-		_collision_object = collision_rectangle(_x-_w,_y-_w,_x+_w,_y+_w,par_projectile_bullet,true,true);
+		var _collision_object_2 = collision_rectangle(_x-_w,_y-_w,_x+_w,_y+_w,par_projectile_bullet,false,true);
 		
-		if (_collision_object && _collision_object != creator) {
-			if (ds_list_find_index(collision_list, _collision_object) == -1) {
-				ds_list_add(collision_list, _collision_object);
+		if (_collision_object_2) {
+			if (ds_list_find_index(collision_list, _collision_object_2) == -1) {
+				ds_list_add(collision_list, _collision_object_2);
 			}
 		}
 	}
 	#endregion
 	var _i,_parent;
-	for (_i = 0; _i < _collisions; _i++) {
+	var _collision_size = ds_list_size(collision_list);
+	for (_i = 0; _i < _collision_size; _i++) {
 		_object = ds_list_find_value(collision_list, _i);
 		if (instance_exists(_object)) {
 			_parent = object_get_parent(_object.object_index);
@@ -43,8 +44,8 @@ if (instance_exists(creator)) {
 				if (enemy && creator != _object && !_object.invincible) {
 					_object.s_take_damage(damage);
 				}
-			} else if (_parent == par_enemy && !_object.invincible) {
-				if (!enemy) {
+			} else if (_parent == par_enemy) {
+				if (!enemy && !_object.invincible) {
 					_object.s_take_damage(damage);
 				}
 			} else if (_parent == par_projectile_bullet) {
