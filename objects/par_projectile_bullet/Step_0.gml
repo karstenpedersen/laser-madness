@@ -4,4 +4,4 @@
 event_inherited();
 
 speed = movement_speed;
-direction = sprite_angle;
+image_angle = direction - 90;

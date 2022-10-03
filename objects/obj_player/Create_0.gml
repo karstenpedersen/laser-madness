@@ -9,7 +9,7 @@ movement = false;
 audio_play_sound(snd_music, 50, true);
 
 function s_use_weapon() {
-	create_projectile(x, y, weapon.projectiles[0], id, sprite_angle);
+	create_projectile(x, y, weapon.projectiles[0], id, direction);
 	alarm[0] = weapon.cooldown;
 }
 

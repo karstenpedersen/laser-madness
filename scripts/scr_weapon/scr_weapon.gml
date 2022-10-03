@@ -1,4 +1,12 @@
 
+function weapon_enemy_flyer() : weapon_base() constructor {
+	cooldown = 60;
+	projectiles = [
+		new projectile_enemy_flyer(),
+	];
+}
+
+
 function weapon_player() : weapon_base() constructor {
 	cooldown = 600;
 	projectiles = [
@@ -12,10 +20,20 @@ function weapon_base() constructor {
 }
 
 function projectile_player() : projectile_laser() constructor {
-	damage = 5;
-	piercing = 3;
+	damage = 4;
+	piercing = 1;
 	object = obj_projectile_player;
-	lifetime = 30;
+	lifetime = 45;
+	range = 200;
+}
+
+function projectile_enemy_flyer() : projectile_base() constructor {
+	damage = 1;
+	piercing = 3;
+	object = obj_projectile_bullet;
+	sprite = spr_projectile_bullet;
+	lifetime = 60;
+	movement_speed = 2;
 	range = 200;
 }
 
@@ -46,7 +64,8 @@ function create_projectile(_x, _y, _projectile, _creator, _angle, _enemy = false
 		damage = _projectile.damage;
 		piercing = _projectile.piercing;
 		enemy = _enemy;
-		sprite_angle = _angle;
+		direction = _angle;
+		image_angle = direction;
 		lifetime = _projectile.lifetime;
 		range = _projectile.range;
 		movement_speed = _projectile.movement_speed;

@@ -24,15 +24,3 @@ if (!instance_exists(par_menu)) {
 	x = 0;
 	y = 0;
 }
-
-// Activate objects
-if (!PAUSED) {
-	// Deactivate objects
-	instance_deactivate_all(true);
-	
-	// Activate region
-	instance_activate_region(x - global.camera_width, y - global.camera_width, global.camera_width * 2, global.camera_width * 2, true);
-	
-	// Activate objects
-	instance_activate_object(par_entity);
-}
