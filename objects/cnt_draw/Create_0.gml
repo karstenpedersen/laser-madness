@@ -18,6 +18,7 @@ if (instance_exists(par_entity)) {
 			layer_sprite_xscale(index[_i], image_xscale);
 			layer_sprite_yscale(index[_i], image_yscale);
 			layer_sprite_angle(index[_i], image_angle);
+			layer_sprite_blend(index[_i], image_blend);
 		}
 	}
 }

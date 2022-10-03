@@ -5,7 +5,8 @@
 event_inherited();
 
 var _speed = 2;
-velocity = [random_range(-_speed, _speed), random_range(-_speed, _speed)];
+speed = irandom(_speed);
+direction = irandom(360);
 
 image_index = irandom(6);
 image_speed = random_range(0.5, 1);

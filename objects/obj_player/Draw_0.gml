@@ -9,7 +9,7 @@ var _length = 0;
 var _collisions = 0;
 var _collision_object,_object;
 
-draw_set_color(c_white);
+
 
 var _speed = 18;
 var _procent = (weapon.cooldown - alarm[0]) / weapon.cooldown;
@@ -20,6 +20,7 @@ var _channel = animcurve_get_channel(_curveStruct, "curve");
 var _curveValue = animcurve_channel_evaluate(_channel, _procent); 
 
 while (_length < _max_length) {
+	draw_set_color(make_color_hsv(0, 0, 255 * _procent));
 	_length += _speed;
 		
 	// Collision

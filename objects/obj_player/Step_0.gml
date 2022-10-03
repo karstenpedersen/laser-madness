@@ -31,10 +31,28 @@ if (dashing) {
 	y += lengthdir_y(dash_speed, angle);
 	
 	create_dust(5);
-} else if (keyboard_check_pressed(vk_space)) {
+} else if (can_dash && keyboard_check_pressed(vk_space)) {
 	dashing = true;
+	can_dash = false;
 	invincible = true;
 	alarm[1] = dash_duration;
+}
+
+if (can_dash) {
+	var _angle = 15;
+	var _len = 6;
+	var _dir = image_angle - 90;
+	var _x = x - 12 + lengthdir_x(_len, _dir);
+	var _y = y + lengthdir_y(_len, _dir);
+	with (instance_create_layer(_x, _y, "Instances", obj_effect_dust)) {
+		direction = _dir + irandom_range(-_angle, _angle);
+	}
+	
+	var _x = x + 12 + lengthdir_x(_len, _dir);
+	var _y = y + lengthdir_y(_len, _dir);
+	with (instance_create_layer(_x, _y, "Instances", obj_effect_dust)) {
+		direction = _dir + irandom_range(-_angle, _angle);
+	}
 }
 
 var b = 512;

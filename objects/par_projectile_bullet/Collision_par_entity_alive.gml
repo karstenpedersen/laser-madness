@@ -1,12 +1,24 @@
 /// @description 
 
-if (ds_list_find_index(collision_list, other.id) == -1 && !other.invincible && ((other.id == obj_player.id && enemy) || (other.id != obj_player.id && !enemy)) && !other.invincible) {
-	ds_list_add(collision_list, other.id);
+if (ds_list_find_index(collision_list, other.id) == -1 && !other.invincible) {
+	var _collide = false;
 	
-	other.s_take_damage(damage);
+	var _parent = object_get_parent(other.object_index);
 	
-	piercing--;
-	if (piercing <= 0) {
-		instance_destroy();
+	if (_parent == par_player && enemy) {
+		_collide = true;
+	} else if (_parent == par_enemy && !enemy) {
+		_collide = true;
+	}
+	
+	if (_collide) {
+		ds_list_add(collision_list, other.id);
+	
+		other.s_take_damage(damage);
+	
+		piercing--;
+		if (piercing <= 0) {
+			instance_destroy();
+		}
 	}
 }

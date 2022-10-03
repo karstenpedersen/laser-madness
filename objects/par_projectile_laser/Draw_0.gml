@@ -39,8 +39,7 @@ if (instance_exists(creator)) {
 	for (_i = 0; _i < _collisions; _i++) {
 		_object = ds_list_find_value(collision_list, _i);
 		if (instance_exists(_object)) {
-			_parent = object_get_parent(_object);
-			show_debug_message(object_get_name(_object));
+			_parent = object_get_parent(_object.object_index);
 			if (_parent == par_player) {
 				if (enemy && creator != _object) {
 					_object.s_take_damage(damage);
