@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_enemy_flyer",
   "spriteId": {
-    "name": "spr_enemy",
-    "path": "sprites/spr_enemy/spr_enemy.yy",
+    "name": "spr_enemy_flyer",
+    "path": "sprites/spr_enemy_flyer/spr_enemy_flyer.yy",
   },
   "solid": false,
   "visible": true,

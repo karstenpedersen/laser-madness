@@ -3,6 +3,7 @@
 // Inherit the parent event
 event_inherited();
 
+dash_speed = 12;
 movement_speed = 2;
 movement = false;
 
@@ -17,5 +18,6 @@ weapon = new weapon_player();
 alarm[0] = weapon.cooldown;
 
 dashing = false;
+dash_duration = 15;
 
 collision_list = ds_list_create();

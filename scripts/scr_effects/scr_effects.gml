@@ -11,11 +11,12 @@ function effect_floor_layer(_sprite, _subimg, _x, _y, _xscale, _yscale, _angle, 
 	}
 }
 
-function create_dust(_amount, _sprite = spr_effect_dust, _color = c_white) {
+function create_dust(_amount, _sprite = spr_effect_dust, _color = c_white, _scale = 1) {
 	repeat (_amount) {
 		with (instance_create_layer(x, y, global.z_layer[irandom(array_length(global.z_layer) - 1)], obj_effect_dust)) {
 			sprite_index = _sprite;
 			image_blend = _color;
+			scale = _scale;
 		}
 	}
 }

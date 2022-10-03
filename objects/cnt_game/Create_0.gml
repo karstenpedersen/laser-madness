@@ -10,6 +10,7 @@ global.score = 0;
 global.enemy_list = ds_list_create();
 ds_list_add(global.enemy_list, obj_enemy_turret);
 ds_list_add(global.enemy_list, obj_enemy_flyer);
+ds_list_add(global.enemy_list, obj_enemy_attacker);
 
 function s_spawn_enemies() {
 	var _enemy_count = global.wave + irandom_range(3, 5);
