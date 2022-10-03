@@ -24,7 +24,6 @@ function s_take_damage(_amount) {
 	if (hp <= 0) {
 		instance_destroy();
 	} else {
-		image_blend = c_gray;
 		invincible = true;
 		alarm[3] = invincible_duration;
 	}

@@ -20,7 +20,4 @@ if (!instance_exists(par_menu)) {
 	camera_set_view_angle(global.camera, global.camera_angle);
 
 	global.z_angle = global.camera_angle;
-} else if (room = rm_menu) {
-	x = 0;
-	y = 0;
 }

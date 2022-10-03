@@ -20,7 +20,7 @@ function weapon_base() constructor {
 }
 
 function projectile_player() : projectile_laser() constructor {
-	damage = 4;
+	damage = 2;
 	piercing = 1;
 	object = obj_projectile_player;
 	lifetime = 45;

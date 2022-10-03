@@ -7,6 +7,8 @@ event_inherited();
 direction = -global.z_angle;
 image_angle = direction;
 
+image_blend = invincible ? c_gray : c_white;
+
 // Movement
 movement = keyboard_check(ord("W"))+keyboard_check(ord("A"))+keyboard_check(ord("S"))+keyboard_check(ord("D"));
 

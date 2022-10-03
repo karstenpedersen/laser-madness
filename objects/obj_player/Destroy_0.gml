@@ -12,4 +12,4 @@ repeat (5) {
 }
 instance_create_depth(x, y, -999, obj_ship_explosion);
 
-//room_goto(rm_death);
+instance_create_layer(0, 0, "Instances", obj_handle_death);
