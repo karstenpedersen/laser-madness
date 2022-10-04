@@ -1,3 +1,3 @@
-/// @description 
+/// @description Reset invincible
 
 invincible = false;

@@ -17,7 +17,7 @@
   "soundFile": "snd_player_dash_full.mp3",
   "duration": 0.888,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Player",
+    "path": "folders/Sounds/SFX/Player.yy",
   },
 }

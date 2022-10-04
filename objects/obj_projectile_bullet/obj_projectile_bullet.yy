@@ -31,7 +31,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "World",
-    "path": "folders/Objects/World.yy",
+    "name": "Projectiles",
+    "path": "folders/Objects/World/Projectiles.yy",
   },
 }

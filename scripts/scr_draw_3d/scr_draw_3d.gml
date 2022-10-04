@@ -1,48 +1,39 @@
+// Old scripts for drawing "3d"
 
-///@arg x
-///@arg y
-///@arg z
-function depth_3d(argument0, argument1, argument2) {
-
-	var xx = argument0;
-	var yy = argument1;
-	var zz = argument2;
-
-	/*var dir = -global.camera_angle+90;
-	depth = xx*lengthdir_x(1,dir)+yy*lengthdir_y(1,dir)-zz;*/
-
-	var CamForward = -global.camera_angle+90;
-	depth = dot_product(x,y, lengthdir_x(1,CamForward ), lengthdir_y(1,CamForward )) - room_width;
-}
-
-function draw_sprite_stacked() {
-	var h = 1;
-	var x_axis = lengthdir_x(h,global.z_angle-90);
-	var y_axis = lengthdir_y(h,global.z_angle+90);
-
-	for (var i = z; i < z+image_number; i++) {
-		draw_sprite_ext(sprite_index,i-z,x+(i*x_axis),y+(i*y_axis),image_xscale,image_yscale,sprite_angle,c_white,1);
+///@func st_destroy()
+function st_destroy() {
+	for (var _i = 0; _i < array_length(index); _i++) {
+		layer_sprite_destroy(index[_i]);
 	}
 }
 
-function draw_sprite_3d() {
-	// Draw 3d rotating sprite
-	draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,-global.z_angle,c_white,image_alpha);
+///@func st_setup()
+function st_setup() {
+	index = [];
+	
+	for (var _i = 0; _i < image_number; _i++) {
+		index[_i] = layer_sprite_create(global.z_layer[_i], x, y, sprite_index);
+		
+		layer_sprite_speed(index[_i], 0);
+		layer_sprite_index(index[_i], _i);
+		layer_sprite_xscale(index[_i], image_xscale);
+		layer_sprite_yscale(index[_i], image_yscale);
+		layer_sprite_angle(index[_i], image_angle);
+	}
 }
 
-///@arg angle
-function draw_sprite_stacked_shadow(argument0) {
-
-	var _angle = argument0;
-	/*
-	var x_axis = lengthdir_x(1,_angle);
-	var y_axis = lengthdir_y(1,_angle);
-	var i;
-	for (i = z; i < z+image_number; i++) {
-		draw_sprite_ext(sprite_index,i-z,x+(i*x_axis),y+(i*y_axis),image_xscale,image_yscale,sprite_angle,c_black,1);
+///@func st_update()
+function st_update() {
+	for (var _i = 0; _i < array_length(index); _i++) {
+		layer_sprite_speed(index[_i], 0);
+		layer_sprite_index(index[_i], _i);
+		layer_sprite_xscale(index[_i], image_xscale);
+		layer_sprite_yscale(index[_i], image_yscale);
+		layer_sprite_angle(index[_i], image_angle);
+		layer_sprite_blend(index[_i], image_blend);
+		layer_sprite_x(index[_i], x);
+		layer_sprite_y(index[_i], y);
 	}
-
-/* end draw_sprite_stacked_shadow */
 }
 
 ///@arg x

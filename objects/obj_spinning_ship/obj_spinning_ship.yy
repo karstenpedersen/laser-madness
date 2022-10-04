@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_spinning_ship",
   "spriteId": {
-    "name": "spr_player",
-    "path": "sprites/spr_player/spr_player.yy",
+    "name": "spr_player_default",
+    "path": "sprites/spr_player_default/spr_player_default.yy",
   },
   "solid": false,
   "visible": true,
@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "par_entity",
-    "path": "objects/par_entity/par_entity.yy",
+    "name": "par_model",
+    "path": "objects/par_model/par_model.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -33,7 +33,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Effects",
+    "path": "folders/Objects/World/Effects.yy",
   },
 }

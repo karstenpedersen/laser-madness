@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_enemy_spawner",
   "spriteId": {
-    "name": "spr_enemy_spawner",
-    "path": "sprites/spr_enemy_spawner/spr_enemy_spawner.yy",
+    "name": "spr_spawner",
+    "path": "sprites/spr_spawner/spr_spawner.yy",
   },
   "solid": false,
   "visible": true,
@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "par_entity",
-    "path": "objects/par_entity/par_entity.yy",
+    "name": "par_model",
+    "path": "objects/par_model/par_model.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -35,7 +35,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "World",
-    "path": "folders/Objects/World.yy",
+    "name": "Enemies",
+    "path": "folders/Objects/World/Enemies.yy",
   },
 }

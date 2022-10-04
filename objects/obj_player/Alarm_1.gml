@@ -1,4 +1,4 @@
-/// @description 
+/// @description Finish dash
 
 dashing = false;
 if (invincible_timer <= 0) {

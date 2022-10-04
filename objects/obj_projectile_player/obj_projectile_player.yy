@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_projectile_player",
   "spriteId": {
-    "name": "spr_enemy",
-    "path": "sprites/spr_enemy/spr_enemy.yy",
+    "name": "spr_projectile_laser",
+    "path": "sprites/spr_projectile_laser/spr_projectile_laser.yy",
   },
   "solid": false,
   "visible": true,
@@ -31,7 +31,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "World",
-    "path": "folders/Objects/World.yy",
+    "name": "Projectiles",
+    "path": "folders/Objects/World/Projectiles.yy",
   },
 }

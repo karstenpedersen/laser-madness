@@ -17,7 +17,7 @@
   "soundFile": "snd_big_enemy_death.mp3",
   "duration": 0.96,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Enemies",
+    "path": "folders/Sounds/SFX/Enemies.yy",
   },
 }

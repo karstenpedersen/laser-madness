@@ -3,3 +3,9 @@ enum PROJECTILE_TYPE {
 	BULLET,
 	LASER,
 }
+
+enum WEIGHTED_GRID {
+	VALUE,
+	WEIGHT,
+	HEIGHT
+}

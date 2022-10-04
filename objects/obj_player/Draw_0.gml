@@ -3,12 +3,8 @@
 // Inherit the parent event
 event_inherited();
 
-
-// Collision
+// Draw laser guide (so player can see where they shoot)
 var _length = 0;
-var _collisions = 0;
-var _collision_object,_object;
-
 var _speed = 18;
 var _procent = (weapon.cooldown - alarm[0]) / weapon.cooldown;
 var _max_length = _procent * ( weapon.projectiles[0].range - _speed);
@@ -23,8 +19,8 @@ while (_length < _max_length) {
 	_length += _speed;
 		
 	// Collision
-	var _x = x+lengthdir_x(_length, image_angle + 90);
-	var _y = y+lengthdir_y(_length, image_angle + 90);
+	var _x = x + lengthdir_x(_length, image_angle + 90);
+	var _y = y + lengthdir_y(_length, image_angle + 90);
 	
 	var _r = _curveValue * 2;
 	_x += irandom_range(-_r, _r);

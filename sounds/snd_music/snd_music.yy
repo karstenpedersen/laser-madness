@@ -17,7 +17,7 @@
   "soundFile": "snd_music.mp3",
   "duration": 90.048,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Music",
+    "path": "folders/Sounds/Music.yy",
   },
 }

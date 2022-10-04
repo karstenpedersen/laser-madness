@@ -17,7 +17,7 @@
   "soundFile": "snd_bullet_death.mp3",
   "duration": 1.32,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "SFX",
+    "path": "folders/Sounds/SFX.yy",
   },
 }

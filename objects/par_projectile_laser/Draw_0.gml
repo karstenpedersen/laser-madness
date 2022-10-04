@@ -16,7 +16,7 @@ if (instance_exists(creator)) {
 		var _w = sprite_get_height(sprite_index) / 2;
 		var _x = x+lengthdir_x(laser_length, image_angle);
 		var _y = y+lengthdir_y(laser_length, image_angle);
-		_collision_object = collision_rectangle(_x-_w,_y-_w,_x+_w,_y+_w,par_entity_alive,false,true);
+		_collision_object = collision_rectangle(_x-_w,_y-_w,_x+_w,_y+_w,par_entity,false,true);
 		
 		if (_collision_object && _collision_object != creator) {
 			if (ds_list_find_index(collision_list, _collision_object) == -1) {
@@ -58,9 +58,10 @@ if (instance_exists(creator)) {
 }
 
 // Draw laser
-draw_line_stacked(x, y, 0, sprite_index, image_angle, laser_length);
+//draw_line_stacked(x, y, 0, sprite_index, image_angle, laser_length);
 
+/*
 var _rot = image_angle;
 var _x = x + lengthdir_x(laser_length, _rot);
 var _y = y + lengthdir_y(laser_length, _rot);
-draw_sprite_ext(spr_projectile_laser_end, 0, _x, _y, 1, 1, _rot, c_white, 1);
+draw_sprite_ext(spr_projectile_laser_end, 0, _x, _y, 1, 1, _rot, c_white, 1);/*

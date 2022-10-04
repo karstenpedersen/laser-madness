@@ -1,14 +1,14 @@
 /// @description 
 
-
-
-
 // Inherit the parent event
 event_inherited();
 
-create_dust(20, spr_effect_dust, c_red);
+// Add points and more
+s_death();
 
-audio_play_sound(snd_small_enemy_death,40,false);
+// Effects
+create_dust(20, spr_effect_dust, c_red);
+audio_play_sound(snd_small_enemy_death, 40, false);
 
 repeat (irandom_range(5, 8)) {
 	var _r = 32;
@@ -18,4 +18,3 @@ repeat (irandom_range(5, 8)) {
 	effect_floor_layer(spr_ship_piece, irandom(sprite_get_number(spr_ship_piece) - 1), _x, _y, 1, 1, irandom(360), make_color_rgb(30, 30, 30), 1);
 }
 
-global.score += 10;

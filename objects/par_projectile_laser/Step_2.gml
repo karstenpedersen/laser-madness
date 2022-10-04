@@ -10,3 +10,5 @@ if (instance_exists(creator)) {
 	direction = _angle;
 	image_angle = direction;
 }
+
+image_xscale = range;

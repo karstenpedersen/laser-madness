@@ -2,7 +2,10 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "par_projectile_laser",
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_projectile_laser",
+    "path": "sprites/spr_projectile_laser/spr_projectile_laser.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,

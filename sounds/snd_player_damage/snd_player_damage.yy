@@ -17,7 +17,7 @@
   "soundFile": "snd_player_damage.mp3",
   "duration": 2.52,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Player",
+    "path": "folders/Sounds/SFX/Player.yy",
   },
 }

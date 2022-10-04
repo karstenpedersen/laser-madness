@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_enemy_dummy",
   "spriteId": {
-    "name": "spr_enemy",
-    "path": "sprites/spr_enemy/spr_enemy.yy",
+    "name": "spr_enemy_placeholder",
+    "path": "sprites/spr_enemy_placeholder/spr_enemy_placeholder.yy",
   },
   "solid": false,
   "visible": true,
@@ -31,7 +31,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "World",
-    "path": "folders/Objects/World.yy",
+    "name": "Enemies",
+    "path": "folders/Objects/World/Enemies.yy",
   },
 }
