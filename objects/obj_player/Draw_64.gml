@@ -2,6 +2,7 @@
 
 var _procent = (weapon.cooldown - alarm[0]) / weapon.cooldown;
 
+draw_set_alpha(1);
 draw_set_color(make_color_rgb(20, 20, 20));
 
 if (instance_exists(obj_projectile_player)) {
