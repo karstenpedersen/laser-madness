@@ -1,5 +1,8 @@
 /// @description 
 
+// Update mouse gui
+MOUSE_GUI_X = device_mouse_x_to_gui(0);
+MOUSE_GUI_Y = device_mouse_y_to_gui(0);
 
 // Handle rooms
 switch (room) {

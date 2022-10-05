@@ -6,3 +6,5 @@ if (keyboard_check_pressed(vk_space)) {
 } else if (keyboard_check_pressed(vk_escape) && os_browser == browser_not_a_browser) {
 	game_end();
 }
+
+menu._update();

@@ -5,7 +5,7 @@ settings_load();
 highscores_load();
 
 // Hide cursor
-window_set_cursor(cr_none);
+// window_set_cursor(cr_none);
 
 // Create controllers
 if (!instance_exists(mng_camera)) instance_create_layer(0, 0, "Managers", mng_camera);
