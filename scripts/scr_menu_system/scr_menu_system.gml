@@ -1,29 +1,29 @@
 
-///@func menu_handler(_elements, _properties)
+///@func menu_handler(elements, properties)
 function menu_handler(_elements, _properties) : menu_element_container(_elements) constructor {
 	menu_index = 0;
 	selected_index = 0;
 }
 
-///@func menu_element_container(_elements)
+///@func menu_element_container(elements)
 function menu_element_container(_elements) : menu_element() constructor  {
 	elements = _elements;
 }
 
 
-///@func menu_element_button(x, y, text, click_event)
-function menu_element_button(_x, _y, _text, click_event) : menu_element_text(_x, _y, _text) constructor {
+///@func menu_element_button(text, on_click, [props])
+function menu_element_button(_text, _on_click, _props = undefined) : menu_element_text(_props) constructor {
 	hoverable = true;
 	selectable = true;
 	
-	on_click = click_event;
+	events.set("on_click", _on_click);
 }
 
-///@func menu_element_text(x, y, text)
-function menu_element_text(_x, _y, _text) : menu_element(_x, _y) constructor {
+///@func menu_element_text(text, [props])
+function menu_element_text(_text, _props = undefined) : menu_element(_props) constructor {
 	text = _text;
 	
-	props = new me_property_handler(new me_text_properties(_x, _y, fnt_small));
+	props = new me_property_handler(new me_text_properties(_props));
 	
 	draw = function() {
 		draw_set_halign(props.get("halign"));
@@ -34,8 +34,8 @@ function menu_element_text(_x, _y, _text) : menu_element(_x, _y) constructor {
 	}
 }
 
-///@func menu_element(x, y)
-function menu_element(_x, _y) constructor {
+///@func menu_element([props])
+function menu_element(_props = undefined) constructor {
 	selected = false;
 	hovered = false;
 	hoverable = false;
@@ -43,7 +43,7 @@ function menu_element(_x, _y) constructor {
 	
 	elements = [];
 	
-	props = new me_property_handler(new me_properties(_x, _y));
+	props = new me_property_handler(new me_properties(_props));
 	events = new me_event_handler();
 	
 	static _setup = function() {
@@ -66,8 +66,9 @@ function menu_element(_x, _y) constructor {
 			hovered = point_in_rectangle(MOUSE_GUI_X, MOUSE_GUI_Y, props.get("bbox_left"), props.get("bbox_top"), props.get("bbox_right"), props.get("bbox_bottom"));
 		}
 		
-		if (on_click.start && hovered && mouse_check_button_pressed(mb_left)) {
-			on_click.start(self);
+		// On click events
+		if (events.has("on_click") && hovered && mouse_check_button_pressed(mb_left)) {
+			events.run("on_click");
 		}
 		
 		on_update(self);
@@ -98,17 +99,6 @@ function menu_element(_x, _y) constructor {
 	setup = function() {};
 	draw = function() {};
 	update = function() {};
-	
-	on_update = function(_self) {};
-	on_draw = function(_self) {};
-	
-	on_click = new me_event(function() { show_debug_message("Clicked"); });
-	on_hover = new me_event(function() { window_set_cursor(cr_handpoint); }, undefined, function() { window_set_cursor(cr_default); });
-	
-	static set_position = function(_x, _y) {
-		props.set(_x);
-		props.set(_y);
-	}
 }
 
 ///@func me_event_handler(default_events)
@@ -121,6 +111,20 @@ function me_event_handler(_default) constructor {
 		}
 		
 		return undefined;
+	}
+	
+	set = function(_name, _value) {
+		variable_struct_set(events, _name, _value);
+	}
+	
+	has = function(_name) {
+		return variable_struct_exists(events, _name);
+	}
+	
+	run = function(_name) {
+		if (has(_name)) {
+			variable_struct_get(events, _name)();
+		}
 	}
 }
 
@@ -176,24 +180,19 @@ function me_property_handler(_default) constructor {
 	}
 }
 
-///@func me_event(start, during, finish)
-function me_event(_start = function() {}, _during = function() {}, _finish = function() {}) constructor {
-	start = _start;
-	during = _during;
-	finish = _finish;
-}
-
-///@func me_text_properties([x], [y], [font])
-function me_text_properties(_x = 0, _y = 0, _font = fnt_small) : me_properties(_x, _y) constructor {
-	font = new me_property(_font);
+///@func me_text_properties([props])
+function me_text_properties(_props = undefined) : me_properties(_props) constructor {
+	font = new me_property(fnt_small);
 	halign = new me_property(fa_left);
 	valign = new me_property(fa_top);
 }
 
-///@func me_properties([x], [y])
-function me_properties(_x = 0, _y = 0) constructor {
-	x = new me_property(_x);
-	y = new me_property(_y);
+// TODO - FIX THIS
+
+///@func me_properties(props)
+function me_properties(_props) constructor {
+	x = new me_property(0);
+	y = new me_property(0);
 	width = new me_property(100);
 	height = new me_property(20);
 	bbox_left = new me_property(function(_e) { return _e.props.get("x"); });

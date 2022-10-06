@@ -12,7 +12,6 @@ movement = keyboard_check(ord("W")) + keyboard_check(ord("A")) + keyboard_check(
 var _move_delta_x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 var _move_delta_y = keyboard_check(ord("S")) - keyboard_check(ord("W"));
 
-
 if (!dashing && movement) {
 	var angle = point_direction(0, 0, _move_delta_x, _move_delta_y) - global.z_angle;
 	x += lengthdir_x(movement_speed, angle);
