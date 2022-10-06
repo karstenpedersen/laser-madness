@@ -1,0 +1,5 @@
+
+enum UI_POSITION {
+	ABSOLUTE,
+	RELATIVE,
+}

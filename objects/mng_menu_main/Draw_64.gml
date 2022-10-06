@@ -1,7 +1,7 @@
 /// @description 
 
 // Draw menu
-menu._draw();
+menu_handler._draw();
 
 draw_point(MOUSE_GUI_X, MOUSE_GUI_Y)
 

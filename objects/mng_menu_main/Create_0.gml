@@ -3,17 +3,33 @@
 // Play music
 //music_set(snd_music_menu);
 
-menu = new menu_handler([
-	new menu_element_text("Laser Madness"),
-	new menu_element_button("Play", function(_self) {
-		room_goto(rm_game);
-	}),
-	new menu_element_button("Settings", function(_self) {
-		_self.props.set("x", 30);
-	}),
-	new menu_element_button("Exit", function(_self) {
-		game_end();
-	}),
-])
+var _button = new ui_button("Test", function(_s) {
+	show_debug_message("Settings")
+}),
 
-menu._setup();
+variable_struct_set(_button.events, "on_select", function(_s) {
+	_s.props.set("x", 30);
+});
+
+menu_handler = new ui_menu_handler([
+	new ui_menu([
+		new ui_text("Laser Madness"),
+		new ui_button("Play", function(_s) {
+			room_goto(rm_game);
+		}),
+		new ui_button("Settings", function(_s) {
+			show_debug_message("Settings")
+		}),
+		new ui_button("Credits", function(_s) {
+			show_debug_message("Settings")
+		}),
+		_button,
+		new ui_button("Exit", function(_s) {
+			game_end();
+		}),
+	
+		new ui_button("Absolute Position", function(_s) {
+			_s.props.set("position", UI_POSITION.RELATIVE);
+		}, { x: 100, y: 20, position: UI_POSITION.ABSOLUTE }),
+	])
+]);
