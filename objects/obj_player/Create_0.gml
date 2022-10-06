@@ -19,3 +19,8 @@ can_dash = true;
 alarm[0] = weapon.cooldown;
 
 collision_list = ds_list_create();
+
+//id of active controller and deadzone
+controller_id = 0;
+deadzone = 0.2;
+move_direction = 0;

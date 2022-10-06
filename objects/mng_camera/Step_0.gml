@@ -7,9 +7,17 @@ if instance_exists(obj_player) {
 	target = noone;
 }
 
-if (!instance_exists(par_menu)) {
-	// Rotate camera
-	var input = keyboard_check(vk_right) - keyboard_check(vk_left);
+if (!instance_exists(par_menu)) && (instance_exists(obj_player)) {
+	//controller turning camera
+	var controller_id = obj_player.controller_id;
+	var rhaxis = gamepad_axis_value(controller_id, gp_axisrh);
+	var stick_pos_right = point_distance(0 ,0, rhaxis, 0);
+		
+	// Rotate camera keyboard
+	input = keyboard_check(vk_right) - keyboard_check(vk_left);
+	if input == 0 && stick_pos_right > obj_player.deadzone {
+		input = rhaxis
+	}
 	global.camera_rotating = keyboard_check(vk_right) + keyboard_check(vk_left);
 	global.camera_angle += input * global.camera_rotate_speed;
 	

@@ -19,5 +19,3 @@ ds_list_add(global.enemy_list, obj_enemy_flyer);
 ds_list_add(global.enemy_list, obj_enemy_flyer);
 
 global.completed_tutorial = global.setting_is_new;
-
-
