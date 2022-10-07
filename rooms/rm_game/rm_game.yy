@@ -19,10 +19,6 @@
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Managers","instances":[],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2099D2C0","properties":[],"isDnd":false,"objectId":{"name":"mng_game","path":"objects/mng_game/mng_game.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":0.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6747D174","properties":[],"isDnd":false,"objectId":{"name":"obj_crate_big","path":"objects/obj_crate_big/obj_crate_big.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":864.0,"y":1248.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4B81AF48","properties":[],"isDnd":false,"objectId":{"name":"obj_crate_big","path":"objects/obj_crate_big/obj_crate_big.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":992.0,"y":1184.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_49271E50","properties":[],"isDnd":false,"objectId":{"name":"obj_crate_big","path":"objects/obj_crate_big/obj_crate_big.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":768.0,"y":1056.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_739B4E6A","properties":[],"isDnd":false,"objectId":{"name":"obj_crate_big","path":"objects/obj_crate_big/obj_crate_big.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":672.0,"y":1248.0,},
       ],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Effects","instances":[],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","spriteId":{"name":"spr_background","path":"sprites/spr_background/spr_background.yy",},"colour":4294967295,"x":0,"y":0,"htiled":true,"vtiled":true,"hspeed":0.0,"vspeed":0.0,"stretch":false,"animationFPS":30.0,"animationSpeedType":0,"userdefinedAnimFPS":false,"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
@@ -32,10 +28,6 @@
   "inheritCode": false,
   "instanceCreationOrder": [
     {"name":"inst_2099D2C0","path":"rooms/rm_game/rm_game.yy",},
-    {"name":"inst_6747D174","path":"rooms/rm_game/rm_game.yy",},
-    {"name":"inst_4B81AF48","path":"rooms/rm_game/rm_game.yy",},
-    {"name":"inst_49271E50","path":"rooms/rm_game/rm_game.yy",},
-    {"name":"inst_739B4E6A","path":"rooms/rm_game/rm_game.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

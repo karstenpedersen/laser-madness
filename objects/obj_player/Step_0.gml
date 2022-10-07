@@ -69,7 +69,7 @@ if (dashing) {
 	
 	// Effect
 	create_dust(5);
-} else if (can_dash && keyboard_check_pressed(vk_space)) || (can_dash && gamepad_button_check(controller_id, gp_shoulderrb)) {
+} else if (can_dash && keyboard_check_pressed(vk_space)) || (can_dash && (gamepad_button_check(controller_id, gp_shoulderlb) || gamepad_button_check(controller_id, gp_shoulderrb))) {
 	audio_play_sound(snd_player_dash,40,false);
 	dashing = true;
 	can_dash = false;

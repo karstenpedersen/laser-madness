@@ -16,7 +16,7 @@ if (!instance_exists(par_menu)) && (instance_exists(obj_player)) {
 	// Rotate camera keyboard
 	input = keyboard_check(vk_right) - keyboard_check(vk_left);
 	if input == 0 && stick_pos_right > obj_player.deadzone {
-		input = rhaxis
+		input = rhaxis;
 	}
 	global.camera_rotating = keyboard_check(vk_right) + keyboard_check(vk_left);
 	global.camera_angle += input * global.camera_rotate_speed;
