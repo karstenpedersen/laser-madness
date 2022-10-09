@@ -84,13 +84,6 @@ function ui_property_handler(_element, _props = undefined) constructor {
 	}
 }
 
-///@func ui_text_properties([props])
-function ui_text_properties(_props = undefined) : ui_properties(_props) constructor {
-	font = new ui_prop(fnt_small);
-	halign = new ui_prop(fa_left);
-	valign = new ui_prop(fa_top);
-}
-
 // TODO - FIX THIS
 
 ///@func ui_properties(props)
@@ -98,8 +91,9 @@ function ui_properties(_props = undefined) constructor {
 	x = new ui_prop(0);
 	y = new ui_prop(0);
 	width = new ui_prop(100);
-	position = new ui_prop(UI_POSITION.RELATIVE);
 	height = new ui_prop(20);
+	width_type = new ui_prop(UI_FILL.MAX);
+	position = new ui_prop(UI_POSITION.RELATIVE);
 	bbox_left = new ui_prop(function(_e) { return _e.props.get("x"); });
 	bbox_right = new ui_prop(function(_e) { return _e.props.get("x") + _e.props.get("width"); });
 	bbox_top = new ui_prop(function(_e) { return _e.props.get("y"); });
@@ -108,7 +102,15 @@ function ui_properties(_props = undefined) constructor {
 	image_yscale = new ui_prop(1);
 	image_blend = new ui_prop(c_white);
 	image_alpha = new ui_prop(1);
+	padding = new ui_prop({ top: 0, bottom: 0, left: 0, right: 0 });
+	gap = new ui_prop({ x: 0, y: 0 });
 	
+	font = new ui_prop(fnt_small);
+	halign = new ui_prop(fa_left);
+	valign = new ui_prop(fa_top);
+	
+	// Combine props
+
 	// FIX THIS
 	if (_props) {
 		var _prop_names = variable_struct_get_names(_props)

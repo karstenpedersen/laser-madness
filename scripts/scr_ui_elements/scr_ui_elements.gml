@@ -1,6 +1,31 @@
 
-///@func ui_menu_handler(menus, [props])
-function ui_menu_handler(_menus, _props = undefined) : ui_container_selectable(_menus, _props) constructor {
+///@func ui_menu_handler(default_name, menus, [props])
+function ui_menu_handler(_default_menu_name, _menus, _props = undefined) : ui_container(_menus, _props) constructor {
+	default_menu_name = _default_menu_name;
+	current_menu_name = default_menu_name;
+	menus = _menus;
+	selected_element = variable_struct_get(menus, current_menu_name);
+	navigation_history = [];
+	
+	goto = function(_name, _save = true) {
+		if (current_menu_name != _name) {
+			if (_save) {
+				array_push(navigation_history, current_menu_name);
+			}
+			
+			current_menu_name = _name;
+			selected_element =  variable_struct_get(menus, current_menu_name);
+		}
+	}
+	
+	go_back = function() {
+		if (array_length(navigation_history) > 0) {
+			goto(array_pop(navigation_history), false);
+		} else {
+			goto(default_menu, false);
+		}
+	}
+	
 	update_elements = function() {
 		if (selected_element) {
 			selected_element._update();
@@ -11,10 +36,12 @@ function ui_menu_handler(_menus, _props = undefined) : ui_container_selectable(_
 			selected_element._draw();
 		}
 	}
+	
+	goto(default_menu_name);
 }
 
 ///@func ui_menu(elements, [props])
-function ui_menu(_elements, _props = undefined) : ui_container_selectable(_elements, _props) constructor {
+function ui_menu(_elements, _props = { width: 640, gap: { x: 0, y: 6 } }) : ui_container_selectable(_elements, _props) constructor {
 	update = function() {
 		var _dir = (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"))) - (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
 		
@@ -31,13 +58,18 @@ function ui_menu(_elements, _props = undefined) : ui_container_selectable(_eleme
 	
 	update_elements = function() {
 		var _y = props.get("y");
+		
 		for (var _i = 0; _i < array_length(elements); _i++) {
 			var _element = elements[_i];
 			
 			if (_element.props.get("position") == UI_POSITION.RELATIVE) {
 				_element.props.set("y", _y);
 				_element.props.set("x", props.get("x"));
-				_y += _element.props.get("height");
+				_y += _element.props.get("height") + props.get("gap").y;
+			}
+			
+			if (_element.props.get("width_type") == UI_FILL.FULL) {
+				_element.props.set("width", props.get("width"));
 			}
 			
 			_element._update();
@@ -69,6 +101,8 @@ function ui_container_selectable(_elements, _props = undefined) : ui_container(_
 				selected_index = _selected_index;
 				break;
 			}
+			
+			_i++;
 		} until (elements[selected_index].selectable);
 			
 		if (_selected_index != selected_index && !elements[selected_index].selected) {
@@ -106,8 +140,6 @@ function ui_button(_text, _on_click, _props = undefined) : ui_text(_text, _props
 function ui_text(_text, _props = undefined) : ui_element(_props) constructor {
 	text = _text;
 	
-	props = new ui_property_handler(self, new ui_text_properties(_props));
-	
 	draw = function() {
 		draw_set_halign(props.get("halign"));
 		draw_set_valign(props.get("valign"));
@@ -115,6 +147,31 @@ function ui_text(_text, _props = undefined) : ui_element(_props) constructor {
 		draw_set_color(hovered || selected ? c_red : props.get("image_blend"));
 		draw_text(props.get("x"), props.get("y"), text);
 	}
+}
+
+///@func ui_title(text, [props])
+function ui_title(_text, _props = { font: fnt_title }) : ui_text(_text, _props) constructor {
+
+}
+
+///@func ui_credit(name, title, [props])
+function ui_credit(_name, _title, _props = { width_type: UI_FILL.FULL }) : ui_element(_props) constructor {
+	name = _name;
+	title = _title;
+
+	draw = function() {
+		draw_set_valign(props.get("valign"));
+		draw_set_font(props.get("font"));
+		
+		draw_set_color(c_gray);
+		draw_set_halign(fa_left);
+		draw_text(props.get("x"), props.get("y"), title);
+		
+		draw_set_color(hovered || selected ? c_red : props.get("image_blend"));
+		draw_set_halign(fa_right);
+		draw_text(props.get("bbox_right"), props.get("y"), name);
+	}
+	
 }
 
 ///@func ui_element([props])
@@ -134,7 +191,7 @@ function ui_element(_props = undefined) constructor {
 		draw();
 		draw_elements();
 		
-		draw_rectangle(props.get("bbox_left"), props.get("bbox_top"), props.get("bbox_right"), props.get("bbox_bottom"), true);
+		// draw_rectangle(props.get("bbox_left"), props.get("bbox_top"), props.get("bbox_right"), props.get("bbox_bottom"), true);
 	};
 	static _update = function() {
 		// Update props

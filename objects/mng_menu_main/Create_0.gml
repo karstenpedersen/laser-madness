@@ -3,33 +3,47 @@
 // Play music
 //music_set(snd_music_menu);
 
-var _button = new ui_button("Test", function(_s) {
-	show_debug_message("Settings")
-}),
-
-variable_struct_set(_button.events, "on_select", function(_s) {
-	_s.props.set("x", 30);
-});
-
-menu_handler = new ui_menu_handler([
-	new ui_menu([
-		new ui_text("Laser Madness"),
+menu_handler = new ui_menu_handler("main", {
+	main: new ui_menu([
+		new ui_title("Laser Madness"),
 		new ui_button("Play", function(_s) {
 			room_goto(rm_game);
 		}),
 		new ui_button("Settings", function(_s) {
-			show_debug_message("Settings")
+			menu_handler.goto("settings");
 		}),
 		new ui_button("Credits", function(_s) {
-			show_debug_message("Settings")
+			menu_handler.goto("credits");
 		}),
-		_button,
 		new ui_button("Exit", function(_s) {
+			menu_handler.goto("exit");
+		}),
+	]),
+	settings: new ui_menu([
+		new ui_title("Settings"),
+		new ui_button("Go back", function(_s) {
+			menu_handler.go_back();
+		}),
+	]),
+	
+	// Credits menu
+	credits: new ui_menu([
+		new ui_title("Credits"),
+		new ui_credit("Karsten F. Pedersen", "Programmer"),
+		new ui_credit("Jonas", "Sound Designer"),
+		new ui_button("Go back", function(_s) {
+			menu_handler.go_back();
+		}),
+	]),
+	
+	// Exit menu
+	"exit": new ui_menu([
+		new ui_text("Exit?"),
+		new ui_button("Yes", function(_s) {
 			game_end();
 		}),
-	
-		new ui_button("Absolute Position", function(_s) {
-			_s.props.set("position", UI_POSITION.RELATIVE);
-		}, { x: 100, y: 20, position: UI_POSITION.ABSOLUTE }),
+		new ui_button("No", function(_s) {
+			menu_handler.go_back();
+		}),
 	])
-]);
+});

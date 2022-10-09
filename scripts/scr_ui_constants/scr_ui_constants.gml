@@ -3,3 +3,9 @@ enum UI_POSITION {
 	ABSOLUTE,
 	RELATIVE,
 }
+
+enum UI_FILL {
+	MAX,
+	MIN,
+	FULL,
+}
