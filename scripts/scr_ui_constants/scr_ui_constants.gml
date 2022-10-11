@@ -4,8 +4,7 @@ enum UI_POSITION {
 	RELATIVE,
 }
 
-enum UI_FILL {
-	MAX,
+enum UI_WIDTH {
 	MIN,
-	FULL,
+	MAX,
 }

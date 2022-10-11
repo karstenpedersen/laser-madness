@@ -1,85 +1,9 @@
 
-///@func ui_menu_handler(default_name, menus, [props])
-function ui_menu_handler(_default_menu_name, _menus, _props = undefined) : ui_container(_menus, _props) constructor {
-	default_menu_name = _default_menu_name;
-	current_menu_name = default_menu_name;
-	menus = _menus;
-	selected_element = variable_struct_get(menus, current_menu_name);
-	navigation_history = [];
-	
-	goto = function(_name, _save = true) {
-		if (current_menu_name != _name) {
-			if (_save) {
-				array_push(navigation_history, current_menu_name);
-			}
-			
-			current_menu_name = _name;
-			selected_element =  variable_struct_get(menus, current_menu_name);
-		}
-	}
-	
-	go_back = function() {
-		if (array_length(navigation_history) > 0) {
-			goto(array_pop(navigation_history), false);
-		} else {
-			goto(default_menu, false);
-		}
-	}
-	
-	update_elements = function() {
-		if (selected_element) {
-			selected_element._update();
-		}
-	}
-	draw_elements = function() {
-		if (selected_element) {
-			selected_element._draw();
-		}
-	}
-	
-	goto(default_menu_name);
-}
-
-///@func ui_menu(elements, [props])
-function ui_menu(_elements, _props = { width: 640, gap: { x: 0, y: 6 } }) : ui_container_selectable(_elements, _props) constructor {
-	update = function() {
-		var _dir = (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"))) - (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
-		
-		if (_dir != 0) {
-			select_element(_dir);
-		}
-		
-		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter)) {
-			if (selected_element) {
-				selected_element.events.run("on_click");
-			}
-		}
-	}
-	
-	update_elements = function() {
-		var _y = props.get("y");
-		
-		for (var _i = 0; _i < array_length(elements); _i++) {
-			var _element = elements[_i];
-			
-			if (_element.props.get("position") == UI_POSITION.RELATIVE) {
-				_element.props.set("y", _y);
-				_element.props.set("x", props.get("x"));
-				_y += _element.props.get("height") + props.get("gap").y;
-			}
-			
-			if (_element.props.get("width_type") == UI_FILL.FULL) {
-				_element.props.set("width", props.get("width"));
-			}
-			
-			_element._update();
-		}
-	}
-}
 
 
-///@func ui_container_selectable(elements, [props])
-function ui_container_selectable(_elements, _props = undefined) : ui_container(_elements, _props) constructor  {
+
+///@func ui_container_selectable(elements, [props], [events])
+function ui_container_selectable(_elements, _props, _events) : ui_container(_elements, _props, _events) constructor  {
 	selected_index = 0;
 	selected_element = undefined;
 	
@@ -122,22 +46,22 @@ function ui_container_selectable(_elements, _props = undefined) : ui_container(_
 	select_element(1);
 }
 
-///@func ui_container(elements, [props])
-function ui_container(_elements, _props = undefined) : ui_element(_props) constructor  {
+///@func ui_container(elements, [props], [events])
+function ui_container(_elements, _props, _events) : ui_element(_props, _events) constructor  {
 	elements = _elements;
 }
 
 
-///@func ui_button(text, on_click, [props])
-function ui_button(_text, _on_click, _props = undefined) : ui_text(_text, _props) constructor {
+///@func ui_button(text, on_click, [props], [events])
+function ui_button(_text, _on_click, _props, _events) : ui_text(_text, _props, _events) constructor {
 	hoverable = true;
 	selectable = true;
 	
 	events.set("on_click", _on_click);
 }
 
-///@func ui_text(text, [props])
-function ui_text(_text, _props = undefined) : ui_element(_props) constructor {
+///@func ui_text(text, [props], [events])
+function ui_text(_text, _props, _events) : ui_element(_props, _events) constructor {
 	text = _text;
 	
 	draw = function() {
@@ -149,33 +73,8 @@ function ui_text(_text, _props = undefined) : ui_element(_props) constructor {
 	}
 }
 
-///@func ui_title(text, [props])
-function ui_title(_text, _props = { font: fnt_title }) : ui_text(_text, _props) constructor {
-
-}
-
-///@func ui_credit(name, title, [props])
-function ui_credit(_name, _title, _props = { width_type: UI_FILL.FULL }) : ui_element(_props) constructor {
-	name = _name;
-	title = _title;
-
-	draw = function() {
-		draw_set_valign(props.get("valign"));
-		draw_set_font(props.get("font"));
-		
-		draw_set_color(c_gray);
-		draw_set_halign(fa_left);
-		draw_text(props.get("x"), props.get("y"), title);
-		
-		draw_set_color(hovered || selected ? c_red : props.get("image_blend"));
-		draw_set_halign(fa_right);
-		draw_text(props.get("bbox_right"), props.get("y"), name);
-	}
-	
-}
-
-///@func ui_element([props])
-function ui_element(_props = undefined) constructor {
+///@func ui_element([props], [events])
+function ui_element(_props = undefined, _events = undefined) constructor {
 	selected = false;
 	hovered = false;
 	hoverable = false;
@@ -185,13 +84,11 @@ function ui_element(_props = undefined) constructor {
 	elements = [];
 	
 	props = new ui_property_handler(self, new ui_properties(_props));
-	events = new ui_event_handler(self);
+	events = new ui_event_handler(self, _events);
 	
 	static _draw = function() {
 		draw();
 		draw_elements();
-		
-		// draw_rectangle(props.get("bbox_left"), props.get("bbox_top"), props.get("bbox_right"), props.get("bbox_bottom"), true);
 	};
 	static _update = function() {
 		// Update props

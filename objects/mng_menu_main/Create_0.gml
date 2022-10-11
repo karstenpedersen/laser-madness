@@ -45,5 +45,5 @@ menu_handler = new ui_menu_handler("main", {
 		new ui_button("No", function(_s) {
 			menu_handler.go_back();
 		}),
-	])
+	], {x: 320, halign: fa_center})
 });

@@ -1,8 +1,8 @@
 
 
 ///@func ui_event_handler(element, [events])
-function ui_event_handler(_element, _events = undefined) constructor {
-	events = _events ? _events : {};
+function ui_event_handler(_element, _events = {}) constructor {
+	events = _events;
 	element = _element;
 	
 	get = function(_name) {
@@ -32,11 +32,10 @@ function ui_event_handler(_element, _events = undefined) constructor {
 	}
 }
 
-///@func ui_property_handler(element, [props])
-function ui_property_handler(_element, _props = undefined) constructor {
-	default_props = _props;	
-	props = default_props;
-	custom_props = {};
+///@func ui_property_handler(element, props, [custom_props])
+function ui_property_handler(_element, _props, _custom_props = {}) constructor {
+	props = _props;
+	custom_props = _custom_props;
 	element = _element;
 	
 	get = function(_name) {
@@ -86,13 +85,13 @@ function ui_property_handler(_element, _props = undefined) constructor {
 
 // TODO - FIX THIS
 
-///@func ui_properties(props)
+///@func ui_properties([props])
 function ui_properties(_props = undefined) constructor {
 	x = new ui_prop(0);
 	y = new ui_prop(0);
 	width = new ui_prop(100);
 	height = new ui_prop(20);
-	width_type = new ui_prop(UI_FILL.MAX);
+	width_type = new ui_prop(UI_WIDTH.MAX);
 	position = new ui_prop(UI_POSITION.RELATIVE);
 	bbox_left = new ui_prop(function(_e) { return _e.props.get("x"); });
 	bbox_right = new ui_prop(function(_e) { return _e.props.get("x") + _e.props.get("width"); });
@@ -103,6 +102,7 @@ function ui_properties(_props = undefined) constructor {
 	image_blend = new ui_prop(c_white);
 	image_alpha = new ui_prop(1);
 	padding = new ui_prop({ top: 0, bottom: 0, left: 0, right: 0 });
+	margin = new ui_prop({ top: 0, bottom: 0, left: 0, right: 0 });
 	gap = new ui_prop({ x: 0, y: 0 });
 	
 	font = new ui_prop(fnt_small);
@@ -110,8 +110,6 @@ function ui_properties(_props = undefined) constructor {
 	valign = new ui_prop(fa_top);
 	
 	// Combine props
-
-	// FIX THIS
 	if (_props) {
 		var _prop_names = variable_struct_get_names(_props)
 		for (var _i = 0; _i < array_length(_prop_names); _i++) {
@@ -131,6 +129,7 @@ function ui_prop(_value) constructor {
 	value_method = undefined;
 	has_method = is_method(_value);
 	transition = new ui_transition();
+	changed = false;
 	
 	if (has_method) {
 		value_method = _value;
@@ -144,6 +143,7 @@ function ui_prop(_value) constructor {
 	
 	static set = function(_value) {
 		has_method = is_method(_value);
+		changed = true;
 		
 		if (has_method) {
 			value_method = _value;
@@ -158,9 +158,6 @@ function ui_prop(_value) constructor {
 			value = value_method(_element);
 			return;
 		}
-		
-		// Transition
-		
 	}
 }
 
@@ -170,7 +167,6 @@ function ui_transition() constructor {
 	curve = anc_linear;
 	duration = 0;
 	delay = 0;
-	
 	timer = 0;
 	
 	static start = function() {
