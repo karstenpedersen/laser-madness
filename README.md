@@ -1,6 +1,6 @@
 # Laser Madness
 
-A topdown shooter with retro-feel made for [Ludum Dare 51](https://ldjam.com/).
+A topdown shooter with a retro-feel made for [Ludum Dare 51](https://ldjam.com/).
 
 Made with GameMaker Studio 2.3.
 
