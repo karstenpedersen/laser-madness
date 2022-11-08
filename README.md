@@ -1,5 +1,7 @@
 # Laser Madness
 
-Video game made with Game Maker Studio 2.3 for Ludum Dare
+A topdown shooter with retro-feel made for [Ludum Dare 51](https://ldjam.com/).
 
-[Itch.io](https://jonasmg.itch.io/laser-madness)
+Made with GameMaker Studio 2.3.
+
+Can be downloaded on [Itch.io](https://jonasmg.itch.io/laser-madness).
